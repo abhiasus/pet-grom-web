@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import asset from "../utils/asset";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg paw-navbar sticky-top">
       <div className="container">
         <Link className="navbar-brand paw-brand" to="/">
-          <img src="/logo.png" alt="Pawfect Spa" className="paw-logo" />
-          <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
+          <img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pawNav" aria-label="Toggle navigation"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="pawNav">
@@ -31,7 +31,7 @@ function Footer() {
     <footer className="paw-footer">
       <div className="container">
         <div className="row g-4">
-          <div className="col-lg-5"><Link className="paw-brand footer-brand" to="/"><img src="/logo.png" alt="" className="paw-logo" /><span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span></Link><p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p></div>
+          <div className="col-lg-5"><Link className="paw-brand footer-brand" to="/"><img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" /></Link><p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p></div>
           <div className="col-6 col-lg-2"><h6>Explore</h6><Link to="/about">Our Story</Link><Link to="/services">Our Services</Link><Link to="/products">Pet Products</Link></div>
           <div className="col-6 col-lg-2"><h6>Need help?</h6><Link to="/booking">Book an Appointment</Link><Link to="/contact">Contact Us</Link><Link to="/cart">Your Cart</Link></div>
           <div className="col-lg-3"><h6>Our promise</h6><p className="footer-description">Gentle handling. Clean spaces. Happy tails.</p><div className="paw-socials"><a href="https://instagram.com" aria-label="Instagram"><i className="bi bi-instagram" /></a><a href="https://facebook.com" aria-label="Facebook"><i className="bi bi-facebook" /></a></div></div>
@@ -101,7 +101,7 @@ export default function Services() {
             <div className="row align-items-center g-5">
               <div className="col-lg-6">
                 <div className="paw-feature-image-wrap">
-                  <img src="/images/services-bath.jpg" alt="Dog enjoying a gentle bath" />
+                  <img src={asset("services-bath.jpg")} alt="Dog enjoying a gentle bath" />
                   <div className="paw-feature-sticker"><i className="bi bi-heart-fill" /> Gentle care,<br />every step.</div>
                 </div>
               </div>

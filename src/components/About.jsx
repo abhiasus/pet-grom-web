@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import asset from "../utils/asset";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg paw-navbar sticky-top">
       <div className="container">
         <Link className="navbar-brand paw-brand" to="/">
-          <img src="/logo.png" alt="Pawfect Spa" className="paw-logo" />
-          <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
+          <img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pawNav" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
@@ -35,8 +35,7 @@ function Footer() {
         <div className="row g-4">
           <div className="col-lg-5">
             <Link className="paw-brand footer-brand" to="/">
-              <img src="/logo.png" alt="" className="paw-logo" />
-              <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
+              <img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" />
             </Link>
             <p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p>
           </div>
@@ -75,7 +74,7 @@ export default function About() {
             <div className="row align-items-center g-5">
               <div className="col-lg-6" data-aos="fade-right">
                 <div className="paw-about-image">
-                  <img src="/images/about.jpg" alt="A happy dog enjoying gentle care" />
+                  <img src={asset("about.jpg")} alt="A happy dog enjoying gentle care" />
                   <span className="paw-about-badge"><i className="bi bi-heart-fill" /> Pets first. Always.</span>
                 </div>
               </div>

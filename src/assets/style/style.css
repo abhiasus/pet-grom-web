@@ -115,11 +115,16 @@ p {
 }
 
 .paw-logo {
-  width: 48px;
-  height: 48px;
-  flex: 0 0 48px;
+  width: auto;
+  height: 64px;
+  flex: none;
   object-fit: contain;
-  border-radius: 50%;
+  border-radius: 0;
+}
+
+.footer-brand .paw-logo {
+  height: 80px;
+  border-radius: 14px;
 }
 
 .paw-navbar .nav-link {
@@ -1529,9 +1534,8 @@ p {
   }
 
   .paw-logo {
-    width: 39px;
-    height: 39px;
-    flex-basis: 39px;
+    width: auto;
+    height: 52px;
   }
 
   .paw-hero-actions {

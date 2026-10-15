@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import asset from "../utils/asset";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg paw-navbar sticky-top">
       <div className="container">
         <Link className="navbar-brand paw-brand" to="/">
-          <img src="/logo.png" alt="Pawfect Spa" className="paw-logo" />
-          <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
+          <img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" />
         </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pawNav" aria-label="Toggle navigation"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="pawNav">
@@ -31,7 +31,7 @@ function Footer() {
     <footer className="paw-footer">
       <div className="container">
         <div className="row g-4">
-          <div className="col-lg-5"><Link className="paw-brand footer-brand" to="/"><img src="/logo.png" alt="" className="paw-logo" /><span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span></Link><p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p></div>
+          <div className="col-lg-5"><Link className="paw-brand footer-brand" to="/"><img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" /></Link><p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p></div>
           <div className="col-6 col-lg-2"><h6>Explore</h6><Link to="/about">Our Story</Link><Link to="/services">Our Services</Link><Link to="/products">Pet Products</Link></div>
           <div className="col-6 col-lg-2"><h6>Need help?</h6><Link to="/booking">Book an Appointment</Link><Link to="/contact">Contact Us</Link><Link to="/cart">Your Cart</Link></div>
           <div className="col-lg-3"><h6>Our promise</h6><p className="footer-description">Gentle handling. Clean spaces. Happy tails.</p><div className="paw-socials"><a href="https://instagram.com" aria-label="Instagram"><i className="bi bi-instagram" /></a><a href="https://facebook.com" aria-label="Facebook"><i className="bi bi-facebook" /></a></div></div>
@@ -43,12 +43,12 @@ function Footer() {
 }
 
 const products = [
-  { id: 1, name: "Gentle Pet Shampoo", category: "Bath essentials", price: 449, img: "/images/product-shampoo.jpg", label: "GROOMING ESSENTIAL" },
-  { id: 2, name: "Soft Grooming Brush", category: "Coat care", price: 349, img: "/images/product-brush.jpg", label: "GROOMING ESSENTIAL" },
-  { id: 3, name: "Paw Care Balm", category: "Paw care", price: 299, img: "/images/product-balm.jpg", label: "GROOMING ESSENTIAL" },
-  { id: 4, name: "Cozy Pet Towel", category: "Bath essentials", price: 599, img: "/images/product-towel.jpg", label: "GROOMING ESSENTIAL" },
-  { id: 5, name: "Fresh Breath Spray", category: "Daily care", price: 279, img: "/images/product-spray.jpg", label: "DAILY FAVOURITE" },
-  { id: 6, name: "Gentle Pet Comb", category: "Coat care", price: 399, img: "/images/product-comb.jpg", label: "GROOMING ESSENTIAL" },
+  { id: 1, name: "Gentle Pet Shampoo", category: "Bath essentials", price: 449, img: "product-shampoo.jpg", label: "GROOMING ESSENTIAL" },
+  { id: 2, name: "Soft Grooming Brush", category: "Coat care", price: 349, img: "product-brush.jpg", label: "GROOMING ESSENTIAL" },
+  { id: 3, name: "Paw Care Balm", category: "Paw care", price: 299, img: "product-balm.jpg", label: "GROOMING ESSENTIAL" },
+  { id: 4, name: "Cozy Pet Towel", category: "Bath essentials", price: 599, img: "product-towel.jpg", label: "GROOMING ESSENTIAL" },
+  { id: 5, name: "Fresh Breath Spray", category: "Daily care", price: 279, img: "product-spray.jpg", label: "DAILY FAVOURITE" },
+  { id: 6, name: "Gentle Pet Comb", category: "Coat care", price: 399, img: "product-comb.jpg", label: "GROOMING ESSENTIAL" },
 ];
 
 export default function Products() {
@@ -94,7 +94,7 @@ export default function Products() {
                 <div className="col-sm-6 col-lg-4" key={product.id} data-aos="fade-up" data-aos-delay={(index % 3) * 80}>
                   <article className="paw-product-card">
                     <div className={`paw-product-image product-tone-${(index % 3) + 1}`}>
-                      <img src={product.img} alt={product.name} />
+                      <img src={asset(product.img)} alt={product.name} />
                       <span className="paw-product-label">{product.label}</span>
                     </div>
                     <div className="paw-product-info">

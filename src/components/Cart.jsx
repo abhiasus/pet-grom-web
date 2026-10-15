@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import asset from "../utils/asset";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg paw-navbar sticky-top">
       <div className="container">
-        <Link className="navbar-brand paw-brand" to="/"><img src="/logo.png" alt="Pawfect Spa" className="paw-logo" /><span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span></Link>
+        <Link className="navbar-brand paw-brand" to="/"><img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" /></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pawNav" aria-label="Toggle navigation"><span className="navbar-toggler-icon" /></button>
         <div className="collapse navbar-collapse" id="pawNav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
@@ -28,7 +29,7 @@ function Footer() {
     <footer className="paw-footer">
       <div className="container">
         <div className="row g-4">
-          <div className="col-lg-5"><Link className="paw-brand footer-brand" to="/"><img src="/logo.png" alt="" className="paw-logo" /><span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span></Link><p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p></div>
+          <div className="col-lg-5"><Link className="paw-brand footer-brand" to="/"><img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" /></Link><p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p></div>
           <div className="col-6 col-lg-2"><h6>Explore</h6><Link to="/about">Our Story</Link><Link to="/services">Our Services</Link><Link to="/products">Pet Products</Link></div>
           <div className="col-6 col-lg-2"><h6>Need help?</h6><Link to="/booking">Book an Appointment</Link><Link to="/contact">Contact Us</Link><Link to="/cart">Your Cart</Link></div>
           <div className="col-lg-3"><h6>Our promise</h6><p className="footer-description">Gentle handling. Clean spaces. Happy tails.</p><div className="paw-socials"><a href="https://instagram.com" aria-label="Instagram"><i className="bi bi-instagram" /></a><a href="https://facebook.com" aria-label="Facebook"><i className="bi bi-facebook" /></a></div></div>
@@ -105,7 +106,7 @@ export default function Cart() {
                     <>
                       {items.map((item) => (
                         <div className="paw-cart-item" key={item.id}>
-                          <img src={item.img} alt={item.name} />
+                          <img src={asset(item.img)} alt={item.name} />
                           <div className="paw-cart-item-info">
                             <h3>{item.name}</h3>
                             <span>₹{item.price} each</span>

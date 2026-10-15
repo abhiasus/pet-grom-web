@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import asset from "../utils/asset";
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg paw-navbar sticky-top">
       <div className="container">
         <Link className="navbar-brand paw-brand" to="/">
-          <img src="/logo.png" alt="Pawfect Spa" className="paw-logo" />
-          <span>
-            Pawfect Spa
-            <small>GENTLE CARE FOR EVERY PAW</small>
-          </span>
+          <img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" />
         </Link>
 
         <button
@@ -54,8 +51,7 @@ function Footer() {
         <div className="row g-4">
           <div className="col-lg-5">
             <Link className="paw-brand footer-brand" to="/">
-              <img src="/logo.png" alt="" className="paw-logo" />
-              <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
+              <img src={asset("logo.png")} alt="Pawfect Spa" className="paw-logo" />
             </Link>
             <p className="footer-description">
               Thoughtful grooming, soothing baths, and a little luxury for
@@ -162,7 +158,7 @@ export default function Home() {
               <div className="col-lg-6" data-aos="fade-left">
                 <div className="paw-hero-image-wrap">
                   <img
-                    src="/images/hero.jpg"
+                    src={asset("hero.jpg")}
                     alt="Happy dog ready for a gentle grooming session"
                     className="paw-hero-image"
                   />
@@ -232,7 +228,7 @@ export default function Home() {
             <div className="row align-items-center g-5">
               <div className="col-lg-6" data-aos="fade-right">
                 <div className="paw-feature-image-wrap">
-                  <img src="/images/dogs-together.jpg" alt="Two happy dogs spending time together" />
+                  <img src={asset("dogs-together.jpg")} alt="Two happy dogs spending time together" />
                   <div className="paw-feature-sticker">
                     <i className="bi bi-heart-fill" />
                     All the care.<br />None of the stress.
