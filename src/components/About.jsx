@@ -1,25 +1,26 @@
-
-import { useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
-import AOS from "aos";
+import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const links = [["Home", "/"], ["About", "/about"], ["Services", "/services"], ["Products", "/products"], ["Contact", "/contact"]];
   return (
     <nav className="navbar navbar-expand-lg paw-navbar sticky-top">
       <div className="container">
         <Link className="navbar-brand paw-brand" to="/">
-          <img src="/logo.png" alt="Pawfect Spa" />
+          <img src="/logo.png" alt="Pawfect Spa" className="paw-logo" />
           <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
         </Link>
-        <button className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#aboutNav" aria-label="Toggle navigation">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pawNav" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
-        <div className="collapse navbar-collapse" id="aboutNav">
+        <div className="collapse navbar-collapse" id="pawNav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
-            {links.map(([n, p]) => <li className="nav-item" key={p}><NavLink end={p === "/"} className="nav-link" to={p}>{n}</NavLink></li>)}
-            <li className="nav-item ms-lg-3"><Link className="btn paw-btn" to="/contact">Book Now</Link></li>
-            <li className="nav-item"><Link className="nav-link" to="/cart">Cart</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+            <li className="nav-item"><Link className="nav-link active" to="/about">About</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/services">Services</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/products">Products</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
+            <li className="nav-item ms-lg-3"><Link className="btn paw-btn paw-btn-primary" to="/booking">Book Now</Link></li>
+            <li className="nav-item ms-lg-2"><Link className="paw-cart-link" to="/cart">Cart <i className="bi bi-bag" /></Link></li>
           </ul>
         </div>
       </div>
@@ -29,60 +30,105 @@ function Navbar() {
 
 function Footer() {
   return (
-    <footer className="paw-footer"><div className="container">
-      <div className="row g-4">
-        <div className="col-md-5"><h3>Pawfect Spa</h3><p>Gentle grooming and natural care for happier pets.</p></div>
-        <div className="col-6 col-md-3"><h6>Explore</h6><Link to="/services">Services</Link><Link to="/products">Products</Link></div>
-        <div className="col-6 col-md-4"><h6>Contact</h6><Link to="/contact">Book a visit</Link><p>hello@pawfectspa.example</p></div>
+    <footer className="paw-footer">
+      <div className="container">
+        <div className="row g-4">
+          <div className="col-lg-5">
+            <Link className="paw-brand footer-brand" to="/">
+              <img src="/logo.png" alt="" className="paw-logo" />
+              <span>Pawfect Spa<small>GENTLE CARE FOR EVERY PAW</small></span>
+            </Link>
+            <p className="footer-description">Thoughtful grooming, soothing baths, and a little luxury for your very best friend.</p>
+          </div>
+          <div className="col-6 col-lg-2"><h6>Explore</h6><Link to="/about">Our Story</Link><Link to="/services">Our Services</Link><Link to="/products">Pet Products</Link></div>
+          <div className="col-6 col-lg-2"><h6>Need help?</h6><Link to="/booking">Book an Appointment</Link><Link to="/contact">Contact Us</Link><Link to="/cart">Your Cart</Link></div>
+          <div className="col-lg-3"><h6>Our promise</h6><p className="footer-description">Gentle handling. Clean spaces. Happy tails.</p><div className="paw-socials"><a href="https://instagram.com" aria-label="Instagram"><i className="bi bi-instagram" /></a><a href="https://facebook.com" aria-label="Facebook"><i className="bi bi-facebook" /></a></div></div>
+        </div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} Pawfect Spa. All rights reserved.</span><span>Made with care for every paw.</span></div>
       </div>
-      <hr /><p className="copyright">© {new Date().getFullYear()} Pawfect Spa</p>
-    </div></footer>
+    </footer>
   );
 }
 
 export default function About() {
-  useEffect(() => { AOS.refresh(); }, []);
+  const values = [
+    { icon: "bi-heart", title: "Kindness First", text: "Every pet is treated with patience, care, and respect for their individual comfort.", color: "value-sage" },
+    { icon: "bi-stars", title: "Thoughtful Details", text: "From gentle products to clean spaces, we pay attention to the little things.", color: "value-clay" },
+    { icon: "bi-flower1", title: "Personal Care", text: "We tailor each visit to your pet's coat, needs, temperament, and routine.", color: "value-sand" },
+  ];
 
   return (
     <>
       <Navbar />
       <main>
-        <section className="page-hero">
-          <div className="container text-center" data-aos="fade-up">
-            <span className="eyebrow">OUR STORY</span>
-            <h1>Care with a softer touch</h1>
-            <p>A grooming experience built around comfort, kindness, and healthy coats.</p>
+        <section className="paw-page-hero">
+          <div className="container">
+            <span className="paw-eyebrow">THE HEART BEHIND THE PAWS</span>
+            <h1>A little more care.<br /><em>A lot more comfort.</em></h1>
+            <p>Meet the thinking behind Pawfect Spa: a calmer, kinder grooming experience for the pets who make our lives better.</p>
+            <div className="paw-breadcrumb"><Link to="/">Home</Link><i className="bi bi-chevron-right" /><span>About</span></div>
           </div>
         </section>
 
-        <section className="section-pad">
+        <section className="paw-section">
           <div className="container">
             <div className="row align-items-center g-5">
               <div className="col-lg-6" data-aos="fade-right">
-                <img className="rounded-photo" src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1000&q=85" alt="Happy dog enjoying gentle care" />
+                <div className="paw-about-image">
+                  <img src="/images/about.jpg" alt="A happy dog enjoying gentle care" />
+                  <span className="paw-about-badge"><i className="bi bi-heart-fill" /> Pets first. Always.</span>
+                </div>
               </div>
               <div className="col-lg-6" data-aos="fade-left">
-                <span className="eyebrow">WHY PAWFECT SPA</span>
-                <h2>Small details. Happier tails.</h2>
-                <p>We believe every pet deserves patience, kindness, and a comfortable grooming experience.</p>
-                <ul className="check-list">
-                  <li>Patient, pet-first handling</li>
-                  <li>Clean and comfortable grooming spaces</li>
-                  <li>Personalised coat and paw care</li>
-                  <li>Clear communication with pet parents</li>
+                <span className="paw-eyebrow">WHY PAWFECT SPA</span>
+                <h2>Small details.<br /><em>Happier tails.</em></h2>
+                <p className="paw-body-copy">
+                  We believe every pet deserves patience, kindness, and a
+                  comfortable grooming experience. Pawfect Spa was imagined
+                  as a welcoming place where pets can settle in, feel cared
+                  for, and leave feeling fresh.
+                </p>
+                <p className="paw-body-copy">
+                  Our approach is simple: listen to pet parents, respect each
+                  animal's pace, and make every bath, trim, and paw treatment
+                  feel as gentle as possible.
+                </p>
+                <ul className="paw-check-list">
+                  <li><i className="bi bi-check-lg" /> Patient, pet-first handling</li>
+                  <li><i className="bi bi-check-lg" /> Clean and comfortable grooming spaces</li>
+                  <li><i className="bi bi-check-lg" /> Personalised coat and paw care</li>
                 </ul>
-                <Link to="/services" className="btn paw-btn">Explore Our Services</Link>
+                <Link to="/services" className="btn paw-btn paw-btn-primary">Explore Our Services <i className="bi bi-arrow-up-right" /></Link>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="story-band section-pad">
-          <div className="container text-center" data-aos="zoom-in">
-            <span className="eyebrow">OUR PROMISE</span>
-            <h2>Every pet deserves to feel safe and loved.</h2>
-            <p>Our goal is to make every visit a positive experience for pets and their families.</p>
-            <Link to="/contact" className="btn paw-btn">Talk to Our Team</Link>
+        <section className="paw-section paw-values-section">
+          <div className="container">
+            <div className="section-heading text-center">
+              <span className="paw-eyebrow">WHAT MATTERS TO US</span>
+              <h2>Care in every <em>little detail.</em></h2>
+              <p>Good grooming is about more than how a pet looks. It's about how they feel.</p>
+            </div>
+            <div className="row g-4 mt-3">
+              {values.map((value, index) => (
+                <div className="col-md-6 col-lg-4" key={value.title} data-aos="fade-up" data-aos-delay={index * 100}>
+                  <article className={`paw-value-card ${value.color}`}>
+                    <div className="paw-value-icon"><i className={`bi ${value.icon}`} /></div>
+                    <h3>{value.title}</h3>
+                    <p>{value.text}</p>
+                  </article>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="paw-cta-section">
+          <div className="container paw-cta-inner">
+            <div><span className="paw-eyebrow">COME SAY HELLO</span><h2>Let's make their day <em>better.</em></h2><p>We'd love to welcome you and your furry friend.</p></div>
+            <Link to="/booking" className="btn paw-btn paw-btn-light">Book an Appointment <i className="bi bi-arrow-up-right" /></Link>
           </div>
         </section>
       </main>
